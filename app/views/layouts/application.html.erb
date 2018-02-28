@@ -11,6 +11,13 @@
 
   <body class="<%= yield (:body_class) %>" >
     <%= render 'partials/header' %>
+
+    <% flash.each do |key, value| %>
+      <div class="container" >
+        <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+      </div>
+    <% end %>
+
     <%= yield %>
     <%= render 'partials/footer' %>
   </body>
