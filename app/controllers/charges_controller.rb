@@ -17,11 +17,17 @@ class ChargesController < ApplicationController
         :currency    => 'aud'
     )
 
+    session[:success] = true
+    session[:transaction_id] = charge.id
     redirect_to charge_success_path
 
   rescue Stripe::CardError => e
     flash[:danger] = e.message
     redirect_to new_charge_path
+  end
+
+  def success
+    redirect_to root_path unless session[:success]
   end
 
 end
