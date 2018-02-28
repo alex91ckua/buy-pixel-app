@@ -1,0 +1,36 @@
+.share-banner {
+  position: fixed;
+  top: 50%;
+  right: -10px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px;
+  padding-right: 20px;
+  background-color: $main-color;
+  border-top-left-radius: 33px;
+  border-bottom-left-radius: 33px;
+  transition: all 0.3s;
+  box-shadow: 0px 0px 35px -8px rgba(0,0,0,0.75);
+
+  .share-banner__item {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #c39150;
+    transition: all 0.3s;
+
+    @include media-breakpoint-up(lg) {
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  &--hide {
+    right: -80px;
+  }
+}

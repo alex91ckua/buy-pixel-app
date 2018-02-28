@@ -1,0 +1,26 @@
+body {
+  background-color: #ffffff;
+  text-rendering: optimizeLegibility;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+img {
+  max-width: 100%;
+}
+
+.select2-dropdown {
+  border: 1px solid #ebebeb;
+}
+
+.select2-search {
+  display: none;
+}
+
+.select2-results__option {
+  font-family: "OpenSansRegular";
+  font-size: 18px;
+  text-align: center;
+}
