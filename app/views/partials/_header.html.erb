@@ -13,9 +13,10 @@
         </div>
       </div>
       <nav class="header-nav  navbar  navbar-expand-lg col-12">
-        <a class="navbar-brand" href="#">
+        <%= link_to root_path, :class => 'navbar-brand' do %>
           <img src="<%= asset_path('logo.png') %>" alt="Al Ihsan Foundation">
-        </a>
+      <% end %>
+
         <button class="navbar-toggler  collapsed" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
           <span class="toggler-icon"></span>
           <span class="toggler-icon"></span>
@@ -25,22 +26,22 @@
           <ul class="navbar-nav mr-0 ml-auto">
             <li class="nav-item">
               <!-- Data text needed for hover effects -->
-              <a class="nav-link" href="#" data-letters="About">About</a>
+              <%= link_to 'About', root_path(:anchor => 'about'), :class => 'nav-link', :data => { :letters => 'About' } %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" data-letters="About project">About project</a>
+              <%= link_to 'About project', root_path(:anchor => 'about'), :class => 'nav-link', :data => { :letters => 'About project' } %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" data-letters="Recent Sponsors">Recent Sponsors</a>
+              <%= link_to 'Recent Sponsors', root_path(:anchor => 'sponsors'), :class => 'nav-link', :data => { :letters => 'Recent Sponsors' } %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" data-letters="FAQ">FAQ</a>
+              <%= link_to 'FAQ', root_path(:anchor => 'faq'), :class => 'nav-link', :data => { :letters => 'FAQ' } %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" data-letters="Receipts">Receipts</a>
+              <%= link_to 'Receipts', root_path(:anchor => 'receipts'), :class => 'nav-link', :data => { :letters => 'Receipts' } %>
             </li>
             <li class="nav-item">
-              <a class="nav-btn" href="#" data-text="Buy a Pixel Now">Buy a Pixel Now</a>
+              <%= link_to 'Buy a Pixel Now', root_path(:anchor => 'buy-now'), :class => 'nav-btn', :data => { :text => 'Buy a Pixel Now' } %>
             </li>
           </ul>
         </div>

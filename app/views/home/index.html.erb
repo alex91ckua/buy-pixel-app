@@ -22,9 +22,9 @@
           <p class="descr__text">See where all the<br>hard work goes</p>
         </div>
         <a href="#homepageVideo1" class="video__link  afterglow">
-          <video id="homepageVideo1" width="960" height="540">
-            <source type="video/mp4" src="/path/to/video.mp4" />
-          </video>
+          <!--<video id="homepageVideo1" width="960" height="540">-->
+            <!--<source type="video/mp4" src="/path/to/video.mp4" />-->
+          <!--</video>-->
           <img class="video__preview" src="<%= asset_path('showcase_video.jpg') %>" alt="">
           <svg class="video__play-btn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="137px" height="137px">
             <path fill-rule="evenodd"  fill="rgb(255, 255, 255)"
@@ -49,7 +49,7 @@
     </div>
   </div>
 </section>
-<section class="about">
+<section id="about" class="about">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -130,7 +130,7 @@
     </div>
   </div>
 </section>
-<section class="pixels">
+<section id="buy-now" class="pixels">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -175,23 +175,21 @@
                 <p class="campaign-started__value">January, 1</p>
               </div>
             </div>
-            <div class="form__bottom">
-              <select class="quantity  js-select2" name="state">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-              <a class="submit" href="#"  data-text="Buy pixels">Buy pixels</a>
-            </div>
+
+            <%= form_tag cart_path, id: 'buy_form' do %>
+              <div class="form__bottom">
+                <%= select_tag :qty, options_for_select((1..50).to_a, 1), class: 'quantity  js-select2' %>
+                <%= link_to 'Buy pixels', "#", :class => 'submit', :onclick => "jQuery('#buy_form').submit()", :data => { :text => 'Buy pixels' } %>
+              </div>
+            <% end %>
+
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<section class="recent-sponsors">
+<section id="sponsors" class="recent-sponsors">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -319,7 +317,7 @@
     </div>
   </div>
 </section>
-<section class="questions">
+<section id="faq" class="questions">
   <div class="container">
     <div class="row align-items-center">
       <div class="questions__faq  col-12  col-md-8  offset-md-2   col-lg-6  offset-lg-0">

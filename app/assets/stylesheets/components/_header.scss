@@ -1,3 +1,19 @@
+$content-padding: 20pt;
+
+body{
+  &.page {
+    .header {
+      position: static;
+      background-color: #313131;
+      margin-bottom: $content-padding;
+    }
+
+    .footer {
+      margin-top: $content-padding;
+    }
+  }
+}
+
 .header {
   position: absolute;
   top: 0;
