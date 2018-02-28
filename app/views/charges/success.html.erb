@@ -1,0 +1,11 @@
+<% content_for :body_class, "page" %>
+
+<div class="container" >
+
+  <h1>Thank you!</h1>
+  <hr>
+  <p>You paid $<%= total_amount %> for <%= product_qty %> Pixels.</p>
+
+  <%= link_to 'Go Home', root_path, class: 'btn-yellow' %>
+</div>
+
