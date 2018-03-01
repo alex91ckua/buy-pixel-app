@@ -1,3 +1,4 @@
+<% content_for :page_title, "Al-Ihsan Pixel Website" %>
 <section class="showcase">
   <div class="showcase__mask"></div>
   <div class="container">
@@ -50,8 +51,6 @@
   </div>
 </section>
 <section id="about" class="about">
-  <%= link_to "#{current_order.order_items.size} Items in Cart ( #{number_to_currency current_order.subtotal} )", cart_path, class: "btn btn-link" %>
-
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -147,41 +146,41 @@
           </div>
           <div class="buy-pixel__form  col-12  col-lg-5">
             <div class="form__top">
-              <div class="price">$1 per pixel</div>
-              <div class="available">500 Total Pixels<br><span>available</span></div>
+              <div class="price"><%= number_to_currency @pixel_product.price %> per pixel</div>
+              <div class="available"><%= @pixel_product.in_stock %> Total Pixels<br><span>available</span></div>
               <div class="collected-money">
                 <p class="money__descr">collected</p>
-                <p class="money__value">$850.00</p>
+                <p class="money__value"><%= number_to_currency @pixel_product.money_collected, precision: 0 %></p>
               </div>
               <div class="collected-percent">
                 <p class="percent__descr">collected %</p>
-                <p class="percent__value">25</p>
+                <p class="percent__value"><%= @collected_percentage %></p>
               </div>
               <div class="progress">
-                <div class="progress__current" style="width: 25%"></div>
+                <div class="progress__current" style="width: <%= @collected_percentage %>%"></div>
               </div>
               <div class="goal">
                 <p class="goal__descr">Goal, $</p>
-                <p class="goal__value">3 400</p>
+                <p class="goal__value"><%= number_to_currency @pixel_product.money_goal, precision: 0 %></p>
               </div>
               <div class="days-left">
                 <p class="days-left__descr">Left</p>
-                <p class="days-left__value">48 days</p>
+                <p class="days-left__value"><%= @days_left %> days</p>
               </div>
               <div class="item-purchased">
                 <p class="item-purchased__descr">item purchased</p>
-                <p class="item-purchased__value">533 rewards</p>
+                <p class="item-purchased__value"><%= @pixel_product.item_purchased %> rewards</p>
               </div>
               <div class="campaign-started">
                 <p class="campaign-started__descr">CAMPAIGN HAS BEEN STARTED</p>
-                <p class="campaign-started__value">January, 1</p>
+                <p class="campaign-started__value"><%= @pixel_product.from_date.strftime("%B %d, %Y") %></p>
               </div>
             </div>
 
             <%= form_for :order_item, :url => order_items_path,:html => {:id => 'buy_form'} do |f| %>
               <div class="form__bottom">
                 <%= f.select :quantity, options_for_select((1..50).to_a, 1), class: 'quantity  js-select2' %>
-                <%= f.hidden_field :product_id, value: 1 %>
+                <%= f.hidden_field :product_id, value: @pixel_product.id %>
                 <%= link_to 'Buy pixels', "#", :class => 'submit', :onclick => "jQuery('#buy_form').submit()", :data => { :text => 'Buy pixels' } %>
               </div>
             <% end %>
@@ -202,118 +201,19 @@
       </div>
     </div>
     <div class="row">
-      <div class="sponsor  col-12  col-sm-10  offset-sm-1  col-md-6  offset-md-0  col-lg-4">
-        <div class="sponsor__avatar" style="background-image: url('<%= asset_path('anonymous-avatar.jpg') %>')"></div>
-        <p class="sponsor__descr">
-          Anonymous Donor<br>
-          <span>Personal Donation</span>
-        </p>
-      </div>
-      <div class="sponsor  col-12  col-sm-10  offset-sm-1  col-md-6  offset-md-0  col-lg-4">
-        <div class="sponsor__avatar" style="background-image: url('<%= asset_path('sponsor-1.jpg') %>')"></div>
-        <p class="sponsor__descr">
-          James Deagan<br>
-          <span>Personal Donation</span>
-        </p>
-      </div>
-      <div class="sponsor  col-12  col-sm-10  offset-sm-1  col-md-6  offset-md-0  col-lg-4">
-        <div class="sponsor__avatar" style="background-image: url('<%= asset_path('sponsor-2.jpg') %>')"></div>
-        <p class="sponsor__descr">
-          Joshua Strawczynski<br>
-          <span>JMarketing</span>
-        </p>
-      </div>
-      <div class="sponsor  col-12  col-sm-10  offset-sm-1  col-md-6  offset-md-0  col-lg-4">
-        <div class="sponsor__avatar" style="background-image: url('<%= asset_path('sponsor-3.jpg') %>')"></div>
-        <p class="sponsor__descr">
-          Hazel Watson<br>
-          <span>Beyond Initiative LTD</span>
-        </p>
-      </div>
-      <div class="sponsor  col-12  col-sm-10  offset-sm-1  col-md-6  offset-md-0  col-lg-4">
-        <div class="sponsor__avatar" style="background-image: url('<%= asset_path('anonymous-avatar.jpg') %>')"></div>
-        <p class="sponsor__descr">
-          Anonymous Donor<br>
-          <span>Personal Donation</span>
-        </p>
-      </div>
-      <div class="sponsor  col-12  col-sm-10  offset-sm-1  col-md-6  offset-md-0  col-lg-4">
-        <div class="sponsor__avatar" style="background-image: url('<%= asset_path('sponsor-1.jpg') %>')"></div>
-        <p class="sponsor__descr">
-          James Deagan<br>
-          <span>Personal Donation</span>
-        </p>
-      </div>
-      <div class="sponsor  col-12  col-sm-10  offset-sm-1  col-md-6  offset-md-0  col-lg-4">
-        <div class="sponsor__avatar" style="background-image: url('<%= asset_path('sponsor-2.jpg') %>')"></div>
-        <p class="sponsor__descr">
-          Joshua Strawczynski<br>
-          <span>JMarketing</span>
-        </p>
-      </div>
-      <div class="sponsor  col-12  col-sm-10  offset-sm-1  col-md-6  offset-md-0  col-lg-4">
-        <div class="sponsor__avatar" style="background-image: url('<%= asset_path('sponsor-3.jpg') %>')"></div>
-        <p class="sponsor__descr">
-          Hazel Watson<br>
-          <span>Beyond Initiative LTD</span>
-        </p>
-      </div>
-      <div class="sponsor  col-12  col-sm-10  offset-sm-1  col-md-6  offset-md-0  col-lg-4">
-        <div class="sponsor__avatar" style="background-image: url('<%= asset_path('anonymous-avatar.jpg') %>')"></div>
-        <p class="sponsor__descr">
-          Anonymous Donor<br>
-          <span>Personal Donation</span>
-        </p>
-      </div>
-      <div class="sponsor  col-12  col-sm-10  offset-sm-1  col-md-6  offset-md-0  col-lg-4">
-        <div class="sponsor__avatar" style="background-image: url('<%= asset_path('sponsor-1.jpg') %>')"></div>
-        <p class="sponsor__descr">
-          James Deagan<br>
-          <span>Personal Donation</span>
-        </p>
-      </div>
-      <div class="sponsor  col-12  col-sm-10  offset-sm-1  col-md-6  offset-md-0  col-lg-4">
-        <div class="sponsor__avatar" style="background-image: url('<%= asset_path('sponsor-2.jpg') %>')"></div>
-        <p class="sponsor__descr">
-          Joshua Strawczynski<br>
-          <span>JMarketing</span>
-        </p>
-      </div>
-      <div class="sponsor  col-12  col-sm-10  offset-sm-1  col-md-6  offset-md-0  col-lg-4">
-        <div class="sponsor__avatar" style="background-image: url('<%= asset_path('sponsor-3.jpg') %>')"></div>
-        <p class="sponsor__descr">
-          Hazel Watson<br>
-          <span>Beyond Initiative LTD</span>
-        </p>
-      </div>
-      <div class="sponsor  col-12  col-sm-10  offset-sm-1  col-md-6  offset-md-0  col-lg-4">
-        <div class="sponsor__avatar" style="background-image: url('<%= asset_path('anonymous-avatar.jpg') %>')"></div>
-        <p class="sponsor__descr">
-          Anonymous Donor<br>
-          <span>Personal Donation</span>
-        </p>
-      </div>
-      <div class="sponsor  col-12  col-sm-10  offset-sm-1  col-md-6  offset-md-0  col-lg-4">
-        <div class="sponsor__avatar" style="background-image: url('<%= asset_path('sponsor-1.jpg') %>')"></div>
-        <p class="sponsor__descr">
-          James Deagan<br>
-          <span>Personal Donation</span>
-        </p>
-      </div>
-      <div class="sponsor  col-12  col-sm-10  offset-sm-1  col-md-6  offset-md-0  col-lg-4">
-        <div class="sponsor__avatar" style="background-image: url('<%= asset_path('sponsor-2.jpg') %>')"></div>
-        <p class="sponsor__descr">
-          Joshua Strawczynski<br>
-          <span>JMarketing</span>
-        </p>
-      </div>
-      <div class="sponsor  col-12  col-sm-10  offset-sm-1  col-md-6  offset-md-0  col-lg-4">
-        <div class="sponsor__avatar" style="background-image: url('<%= asset_path('sponsor-3.jpg') %>')"></div>
-        <p class="sponsor__descr">
-          Hazel Watson<br>
-          <span>Beyond Initiative LTD</span>
-        </p>
-      </div>
+
+      <% @latest_orders.each do |order| %>
+        <% if !order.sponsor_name.nil? && order.sponsor_name.length > 1 %>
+          <div class="sponsor  col-12  col-sm-10  offset-sm-1  col-md-6  offset-md-0  col-lg-4">
+            <div class="sponsor__avatar" style="background-image: url('<%= asset_path('anonymous-avatar.jpg') %>')"></div>
+            <p class="sponsor__descr">
+              <%= order.sponsor_name %><br>
+              <span>Personal Donation</span>
+            </p>
+          </div>
+        <% end %>
+      <% end %>
+
     </div>
     <div class="row">
       <a class="sponsors__btn" href="#" data-text="Become one of us">Become one of us</a>

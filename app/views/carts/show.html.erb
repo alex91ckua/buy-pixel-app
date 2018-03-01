@@ -1,8 +1,9 @@
 <% content_for :body_class, "page" %>
+<% content_for :page_title, "Cart" %>
 
 <div class="container" >
 
-  <h1>Cart</h1>
+  <h1><%= yield (:page_title) %></h1>
 
   <% if !@order_item.nil? && @order_item.errors.any? %>
     <div class="alert alert-danger">

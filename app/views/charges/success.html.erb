@@ -1,12 +1,12 @@
 <% content_for :body_class, "page" %>
+<% content_for :page_title, "Payment Successful!" %>
 
 <div class="container" >
 
-  <h1>Thank you!</h1>
+  <h1><%= yield (:page_title) %></h1>
   <hr>
-  Transaction ID: <%= transaction_id %>
+  Thanks for your generosity and support!
   <hr>
-  <p>You paid $<%= total_amount %> for <%= product_qty %> Pixels.</p>
 
   <%= link_to 'Go Home', root_path, class: 'btn-yellow' %>
 </div>

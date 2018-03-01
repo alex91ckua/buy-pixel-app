@@ -1,8 +1,9 @@
 <% content_for :body_class, "page" %>
+<% content_for :page_title, "Checkout" %>
 
 <div class="container" >
 
-  <h1>Checkout</h1>
+  <h1><%= yield (:page_title) %></h1>
   <hr>
   <%= form_tag charge_path do %>
     <article>
@@ -20,6 +21,8 @@
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-description="Al-Ihsan Foundation Pixel"
             data-currency="aud"
+            data-name="Al-Ihsan Foundation"
+            data-billing-address="true"
             data-amount="<%= current_order.total_cents %>"
             data-locale="auto"></script>
   <% end %>
