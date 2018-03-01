@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Product.delete_all
-Product.create! id: 1, name: 'Single Pixel', price: 1.00, active: true
+Product.create! id: 1, name: 'Single Pixel', price: 1.00, active: true, item_purchased: 0, money_collected: 0, in_stock: 9999, money_goal: 10000, from_date: Time.now.to_date, to_date: Time.now.to_date + 1.month
 
 OrderStatus.delete_all
 OrderStatus.create! id: 1, name: 'In Progress'
