@@ -18,9 +18,25 @@
       There are no items in your shopping cart.  Please <%= link_to "go back", root_path %> and add some items to your cart.
     </p>
   <% else %>
-    <% @order_items.each do |order_item| %>
-      <%= render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true %>
-    <% end %>
+
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Product</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Unit Price</th>
+          <th scope="col">Total</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order_items.each do |order_item| %>
+          <%= render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true %>
+        <% end %>
+      </tbody>
+    </table>
+
     <hr>
     <div class="text-right" >
       <%= link_to 'Proceed to Checkout', new_charge_path, class: 'btn-yellow' %>
