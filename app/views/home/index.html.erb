@@ -50,6 +50,8 @@
   </div>
 </section>
 <section id="about" class="about">
+  <%= link_to "#{current_order.order_items.size} Items in Cart ( #{number_to_currency current_order.subtotal} )", cart_path, class: "btn btn-link" %>
+
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -176,9 +178,10 @@
               </div>
             </div>
 
-            <%= form_tag cart_path, id: 'buy_form' do %>
+            <%= form_for :order_item, :url => order_items_path,:html => {:id => 'buy_form'} do |f| %>
               <div class="form__bottom">
-                <%= select_tag :qty, options_for_select((1..50).to_a, 1), class: 'quantity  js-select2' %>
+                <%= f.select :quantity, options_for_select((1..50).to_a, 1), class: 'quantity  js-select2' %>
+                <%= f.hidden_field :product_id, value: 1 %>
                 <%= link_to 'Buy pixels', "#", :class => 'submit', :onclick => "jQuery('#buy_form').submit()", :data => { :text => 'Buy pixels' } %>
               </div>
             <% end %>
