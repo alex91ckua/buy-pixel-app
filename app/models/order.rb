@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :order_status
   has_many :order_items
-  before_validation :set_order_status, on: :create
+  # before_validation :set_order_status, on: :create
   before_save :update_subtotal
   before_save :update_total
   before_save :update_total_cents
@@ -39,4 +39,5 @@ class Order < ApplicationRecord
   def update_total_cents
     self[:total_cents] = total * 100.round
   end
+
 end
