@@ -20,7 +20,7 @@
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-description="Al-Ihsan Foundation Pixel"
             data-currency="aud"
-            data-amount="<%= current_order.subtotal %>"
+            data-amount="<%= current_order.total_cents %>"
             data-locale="auto"></script>
   <% end %>
 
