@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180301114525) do
+ActiveRecord::Schema.define(version: 20180301194827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20180301114525) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "total_cents"
+    t.string "transaction_id"
+    t.string "sponsor_name"
     t.index ["order_status_id"], name: "index_orders_on_order_status_id"
   end
 
@@ -51,6 +53,12 @@ ActiveRecord::Schema.define(version: 20180301114525) do
     t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "in_stock"
+    t.decimal "money_collected", precision: 12, scale: 3
+    t.decimal "money_goal", precision: 12, scale: 3
+    t.integer "item_purchased"
+    t.date "from_date"
+    t.date "to_date"
   end
 
   add_foreign_key "order_items", "orders"
