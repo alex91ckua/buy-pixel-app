@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :order_items, only: [:create, :update, :destroy]
   resource :cart, only: [:show, :create]
   root 'home#index'
