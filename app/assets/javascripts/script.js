@@ -4,6 +4,9 @@ var $j = jQuery.noConflict();
 
 $j( document ).on('turbolinks:load', function() {
 
+    afterglow.init();
+    FontAwesome.dom.i2svg();
+
   // Smooth scrolling to internal links
   $j('a[href^="#"]').on('click',function (e) {
 	  e.preventDefault();
