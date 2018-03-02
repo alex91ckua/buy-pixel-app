@@ -263,15 +263,8 @@
         <div class="wrap">
           <h3 class="ask-questions__title">Ask your Question</h3>
           <div class="ask-questions__line"></div>
-          <form action="" class="ask-questions__form">
-            <input class="form__your-name" type="text" placeholder="Your Name...">
-            <input class="form__your-email" type="email" placeholder="Your E-mail...">
-            <input class="form__subject" type="text" placeholder="Subject...">
-            <textarea class="form__your-message" placeholder="Your message here..."></textarea>
-            <label class="form__submit" data-text="Submit now">
-              <input type="submit" value="Submit now">
-            </label>
-          </form>
+
+          <%= render 'home/contact_us_form' %>
         </div>
       </div>
     </div>

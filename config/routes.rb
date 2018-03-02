@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :order_items, only: [:create, :update, :destroy]
@@ -7,6 +6,7 @@ Rails.application.routes.draw do
   root 'home#index'
   resource :charge, only: [:new, :create]
   get 'charge/success', to: 'charges#success'
-
+  post 'contact_us/create'
+  get 'contact_us/status'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

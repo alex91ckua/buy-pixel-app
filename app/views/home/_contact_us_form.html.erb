@@ -1,0 +1,9 @@
+<%= form_tag contact_us_create_path, class: 'ask-questions__form' do%>
+  <%= text_field_tag 'name', nil, class: 'form__your-name', placeholder: 'Your Name...' %>
+  <%= text_field_tag 'email', nil, class: 'form__your-email', placeholder: 'Your E-mail...' %>
+  <%= text_field_tag 'subject', nil, class: 'form__your-email', placeholder: 'Subject...' %>
+  <%= text_area_tag 'body', nil, class: 'form__your-message', placeholder: 'Your message here...' %>
+  <label class="form__submit" data-text="Submit now">
+    <%= submit_tag "submit",:value => "Submit now"%>
+  </label>
+<%end%>
