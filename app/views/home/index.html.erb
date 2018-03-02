@@ -23,9 +23,9 @@
           <p class="descr__text">See where all the<br>hard work goes</p>
         </div>
         <a href="#homepageVideo1" class="video__link  afterglow">
-          <!--<video id="homepageVideo1" width="960" height="540">-->
-            <!--<source type="video/mp4" src="/path/to/video.mp4" />-->
-          <!--</video>-->
+          <video id="homepageVideo1" width="960" height="540">
+            <source type="video/mp4" src="<%= Rails.root+"/mov_bbb.mp4"%>" />
+          </video>
           <img class="video__preview" src="<%= asset_path('showcase_video.jpg') %>" alt="">
           <svg class="video__play-btn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="137px" height="137px">
             <path fill-rule="evenodd"  fill="rgb(255, 255, 255)"
@@ -179,7 +179,7 @@
 
             <%= form_for :order_item, :url => order_items_path,:html => {:id => 'buy_form'} do |f| %>
               <div class="form__bottom">
-                <%= f.select :quantity, options_for_select((1..50).to_a, 1), class: 'quantity  js-select2' %>
+                <%= f.select :quantity, (1..50).to_a, {}, { :class => 'quantity  js-select2' } %>
                 <%= f.hidden_field :product_id, value: @pixel_product.id %>
                 <%= link_to 'Buy pixels', "#", :class => 'submit', :onclick => "jQuery('#buy_form').submit()", :data => { :text => 'Buy pixels' } %>
               </div>
