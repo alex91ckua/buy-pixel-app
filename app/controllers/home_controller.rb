@@ -9,7 +9,5 @@ class HomeController < ApplicationController
     @collected_percentage = (@pixel_product.item_purchased * 100) / total_products
 
     @latest_orders = Order.order('created_at DESC').where(order_status_id: 2).limit(18)
-
-    @footer_text = Setting.footer_text.gsub(/[\r\n]+/, "<br><br>")
   end
 end

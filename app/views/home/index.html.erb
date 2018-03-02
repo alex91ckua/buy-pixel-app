@@ -179,7 +179,7 @@
 
             <%= form_for :order_item, :url => order_items_path,:html => {:id => 'buy_form'} do |f| %>
               <div class="form__bottom">
-                <%= f.select :quantity, (1..50).to_a, {}, { :class => 'quantity  js-select2' } %>
+                <%= f.select :quantity, (1..1000).to_a, {}, { :class => 'quantity  js-select2' } %>
                 <%= f.hidden_field :product_id, value: @pixel_product.id %>
                 <%= link_to 'Buy pixels', "#", :class => 'submit', :onclick => "jQuery('#buy_form').submit()", :data => { :text => 'Buy pixels' } %>
               </div>
