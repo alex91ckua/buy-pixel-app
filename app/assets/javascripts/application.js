@@ -17,4 +17,4 @@
 //= require fontawesome-all.min
 //= require select2.min
 //= require afterglow.min
-//= require script.min
+//= require script
