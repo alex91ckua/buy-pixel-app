@@ -1,0 +1,19 @@
+# config/app.yml for rails-settings-cached
+defaults: &defaults
+  address: '1 test st Charity No: 12345'
+  copy_text: 'IDCA © 2017 ACN 111 111 111 CFN 222 222 222'
+  footer_text: 'Lorem Ipsum'
+  phone: '111-111-111'
+  twitter: 'http://site.com'
+  youtube: 'http://site.com'
+  facebook: 'http://site.com'
+  google_plus: 'http://site.com'
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
