@@ -15,5 +15,5 @@ class ContactUsController < ApplicationController
 
       redirect_to contact_us_status_path
   end
-  
+
 end
