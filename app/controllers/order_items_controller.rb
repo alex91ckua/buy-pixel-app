@@ -2,31 +2,42 @@ class OrderItemsController < ApplicationController
 
   def create
     @order = current_order
-    @order_item = @order.order_items.find_or_initialize_by(product_id: params[:order_item][:product_id])
-    # @order_item = @order.order_items.new(order_item_params)
-    @order_item.update_attributes(order_item_params)
-    @order.save
-    session[:order_id] = @order.id
-    redirect_to_cart
+    @order_item = @order.order_items.find_by(product_id: params[:order_item][:product_id])
+    @order_item ||= @order.order_items.new(order_item_params)
+    @order_item.assign_attributes(order_item_params)
+    @order_item.save
+    if @order_item.valid?
+      @order.save
+      session[:order_id] = @order.id
+      redirect_to_cart
+    else
+      redirect_to cart_path, :flash => { :danger => @order_item.errors.full_messages.to_sentence }
+    end
   end
 
   def update
     @order = current_order
     @order_item = @order.order_items.find(params[:id])
-    @order_item.update_attributes(order_item_params)
-    @order.save # trigger re-calculation
-    @order_items = @order.order_items
-
-    redirect_to_cart
+    if @order_item
+      @order_item.assign_attributes(order_item_params)
+      @order_item.save
+      if @order_item.valid?
+        @order.save
+        session[:order_id] = @order.id
+        @order_items = @order.order_items
+        redirect_to_cart
+      else
+        redirect_to cart_path, :flash => { :danger => @order_item.errors.full_messages.to_sentence }
+      end
+    end
   end
 
   def destroy
     @order = current_order
     @order_item = @order.order_items.find(params[:id])
     @order_item.destroy
-    @order.save
+    @order.save # trigger re-calculation
     @order_items = @order.order_items
-
     redirect_to_cart
   end
 
