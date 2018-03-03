@@ -1,14 +1,11 @@
 class ChargesController < ApplicationController
   before_action :cart_exist, only: [:new, :create]
-  before_action :validate_stock, only: [:new, :create]
 
   def create
 
     customer = Stripe::Customer.create( :email => params[:stripeEmail],
                                         :source  => params[:stripeToken]
     )
-
-    p params
 
     charge = Stripe::Charge.create( :customer    => customer.id,
                                     :amount      => current_order.total_cents, # Amount in cents
@@ -54,14 +51,6 @@ class ChargesController < ApplicationController
 
   def cart_exist
     redirect_to root_path unless session[:order_id]
-  end
-
-  def validate_stock
-    current_order.order_items.each do |oi|
-      product = Product.find_by_id(oi.product_id)
-      in_stock = product.in_stock - oi.quantity
-      redirect_to cart_path, :flash => { :danger => "You can't purchase '#{product.name}', there is only #{product.in_stock} left!" } if in_stock < 0
-    end
   end
 
 end
