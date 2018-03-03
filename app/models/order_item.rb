@@ -2,9 +2,10 @@ class OrderItem < ApplicationRecord
   belongs_to :product
   belongs_to :order
 
-  validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validates :quantity, presence: true, numericality: {only_integer: true, greater_than: 0}
   validate :product_present
   validate :order_present
+  validate :validate_stock
 
   before_save :finalize
 
@@ -21,6 +22,14 @@ class OrderItem < ApplicationRecord
   end
 
   private
+
+  def validate_stock
+    in_stock = product.in_stock - self[:quantity]
+    if in_stock < 0
+      errors.add(:product, "can't be purchased '#{product.name}', there is only #{product.in_stock} left!")
+    end
+  end
+
   def product_present
     if product.nil?
       errors.add(:product, "is not valid or is not active.")
