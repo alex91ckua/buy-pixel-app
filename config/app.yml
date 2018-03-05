@@ -8,6 +8,8 @@ defaults: &defaults
   youtube: 'http://site.com'
   facebook: 'http://site.com'
   google_plus: 'http://site.com'
+  email_address: 'example@mail.com'
+  default_from_email_address: 'example@mail.com'
 
 development:
   <<: *defaults

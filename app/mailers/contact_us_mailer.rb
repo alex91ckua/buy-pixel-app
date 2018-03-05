@@ -1,6 +1,6 @@
 class ContactUsMailer < ApplicationMailer
   def contact_us(name, email, subject, body)
-    to = 'some@jm.com'
+    to = Setting.email_address
     @name = name
     @email = email
     @subject = subject
