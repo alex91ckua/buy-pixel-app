@@ -17,5 +17,4 @@
 //= require fontawesome-all.min
 //= require select2.min
 //= require afterglow.min
-//= require es6-shim.min.js
 //= require script
