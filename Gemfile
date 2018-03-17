@@ -56,6 +56,9 @@ gem 'activeadmin_settings_cached'
 # simple cron
 gem 'whenever', require: false
 
+
+gem 'magnific-popup-rails', '~> 1.1.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
