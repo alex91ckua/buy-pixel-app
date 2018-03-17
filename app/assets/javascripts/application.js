@@ -18,3 +18,4 @@
 //= require select2.min
 //= require afterglow.min
 //= require script
+//= require magnific-popup
