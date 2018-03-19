@@ -78,7 +78,11 @@ img {
 
   .mfp-close {
     top: -40px;
-    cursor: pointer !important
+    cursor: pointer !important;
+
+    &:active {
+      top: -40px !important;
+    }
   }
 
   .img__container {
