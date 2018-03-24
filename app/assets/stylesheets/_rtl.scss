@@ -1,0 +1,110 @@
+html[dir="rtl"] {
+
+
+.header {
+
+  .header-top__languages {
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  .header-top__socials {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  @include media-breakpoint-up(lg) {
+
+    .header-nav .navbar-nav {
+      margin-left: 0 !important;
+      margin-right: auto !important;
+
+      .nav-link {
+        padding-right: 0;
+        padding-left: 18px;
+
+        &::before {
+          right: 0;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+
+    .header-nav .navbar-nav {
+
+      .nav-link {
+        padding-left: 45px;
+      }
+    }
+  }
+}
+
+.pixels {
+
+  .pixels__buy-pixel {
+
+    .buy-pixel__form {
+
+      .form__top {
+
+        .price {
+
+          @include media-breakpoint-up(lg) {
+            &::after {
+              border-top: 25px solid transparent;
+              border-bottom: 25px solid transparent;
+              border-left: 25px solid #f5b86a;
+              border-right: none;
+              left: calc(100%);
+            }
+          }
+        }
+
+        .progress {
+
+          .progress__current {
+            margin-left: auto;
+            margin-right: 0;
+          }
+        }
+      }
+
+      .form__bottom {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+    }
+  }
+}
+
+.recent-sponsors {
+
+  .sponsor {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.questions {
+
+  .questions__faq,
+  .questions__ask-question {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .faq__accordion {
+
+    .accordion__item {
+
+      .item__heading {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+    }
+  }
+}
+}

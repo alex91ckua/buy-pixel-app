@@ -65,10 +65,7 @@
   .pixels__buy-pixel {
 
     .buy-pixel__img {
-
-      cursor: -moz-zoom-in;
-      cursor: -webkit-zoom-in;
-      cursor: zoom-in;
+      cursor: pointer;
 
       .img__container {
         margin-left: auto;
@@ -357,6 +354,7 @@
           text-align: center;
           border-top-left-radius: 0px;
           border-bottom-left-radius: 0px;
+          height: 51px;
 
           &::after {
             padding-left: 0;
