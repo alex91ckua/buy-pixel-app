@@ -14,27 +14,29 @@
           <a class="descr__btn  descr__btn--2" href="#about" data-text="Learn more">Learn more</a>
         </div>
       </div>
-      <div class="showcase__video  col-12  col-sm-10  offset-sm-1  col-lg-6  offset-lg-0">
-        <div class="video__descr">
-          <svg class="descr__arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="31px" height="28px">
-            <path fill-rule="evenodd"  fill="rgb(245, 184, 106)"
-                  d="M19.435,0.605 C22.600,0.583 25.735,0.800 28.866,1.214 C29.118,1.112 29.352,1.138 29.547,1.252 C29.714,1.273 29.865,1.325 29.986,1.419 C30.227,1.545 30.342,1.766 30.345,2.015 C30.422,2.390 30.270,2.773 29.819,2.893 C29.670,2.974 29.497,3.021 29.296,3.002 C29.277,3.005 29.259,3.008 29.240,3.011 C26.703,4.601 24.414,6.462 22.350,8.634 C21.572,9.452 20.329,8.224 21.104,7.408 C22.306,6.145 23.590,4.982 24.946,3.907 C13.351,6.807 2.622,13.589 2.086,26.749 C2.040,27.866 0.286,27.864 0.332,26.738 C0.887,13.087 11.590,5.682 23.605,2.457 C22.213,2.381 20.819,2.339 19.421,2.349 C18.293,2.356 18.304,0.612 19.435,0.605 Z"/>
-          </svg>
-          <p class="descr__text">See where all the<br>hard work goes</p>
+      <% if !Setting.video_url.empty? %>
+        <div class="showcase__video  col-12  col-sm-10  offset-sm-1  col-lg-6  offset-lg-0">
+          <div class="video__descr">
+            <svg class="descr__arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="31px" height="28px">
+              <path fill-rule="evenodd"  fill="rgb(245, 184, 106)"
+                    d="M19.435,0.605 C22.600,0.583 25.735,0.800 28.866,1.214 C29.118,1.112 29.352,1.138 29.547,1.252 C29.714,1.273 29.865,1.325 29.986,1.419 C30.227,1.545 30.342,1.766 30.345,2.015 C30.422,2.390 30.270,2.773 29.819,2.893 C29.670,2.974 29.497,3.021 29.296,3.002 C29.277,3.005 29.259,3.008 29.240,3.011 C26.703,4.601 24.414,6.462 22.350,8.634 C21.572,9.452 20.329,8.224 21.104,7.408 C22.306,6.145 23.590,4.982 24.946,3.907 C13.351,6.807 2.622,13.589 2.086,26.749 C2.040,27.866 0.286,27.864 0.332,26.738 C0.887,13.087 11.590,5.682 23.605,2.457 C22.213,2.381 20.819,2.339 19.421,2.349 C18.293,2.356 18.304,0.612 19.435,0.605 Z"/>
+            </svg>
+            <p class="descr__text">See where all the<br>hard work goes</p>
+          </div>
+          <a href="#homepageVideo1" class="video__link  afterglow">
+            <video id="homepageVideo1" width="960" height="540">
+              <source type="video/mp4" src="<%= Setting.video_url %>" />
+            </video>
+            <img class="video__preview" src="<%= asset_path('showcase_video.jpg') %>" alt="">
+            <svg class="video__play-btn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="137px" height="137px">
+              <path fill-rule="evenodd"  fill="rgb(255, 255, 255)"
+                    d="M68.000,34.406 C86.553,34.406 101.594,49.447 101.594,68.000 C101.594,86.553 86.553,101.594 68.000,101.594 C49.447,101.594 34.406,86.553 34.406,68.000 C34.406,49.447 49.447,34.406 68.000,34.406 Z"/>
+              <path fill-rule="evenodd"  fill="rgb(245, 184, 106)"
+                    d="M64.000,57.817 L76.582,68.000 L64.000,78.182 L64.000,57.817 Z"/>
+            </svg>
+          </a>
         </div>
-        <a href="#homepageVideo1" class="video__link  afterglow">
-          <video id="homepageVideo1" width="960" height="540">
-            <source type="video/mp4" src="<%= Rails.root+"/mov_bbb.mp4"%>" />
-          </video>
-          <img class="video__preview" src="<%= asset_path('showcase_video.jpg') %>" alt="">
-          <svg class="video__play-btn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="137px" height="137px">
-            <path fill-rule="evenodd"  fill="rgb(255, 255, 255)"
-                  d="M68.000,34.406 C86.553,34.406 101.594,49.447 101.594,68.000 C101.594,86.553 86.553,101.594 68.000,101.594 C49.447,101.594 34.406,86.553 34.406,68.000 C34.406,49.447 49.447,34.406 68.000,34.406 Z"/>
-            <path fill-rule="evenodd"  fill="rgb(245, 184, 106)"
-                  d="M64.000,57.817 L76.582,68.000 L64.000,78.182 L64.000,57.817 Z"/>
-          </svg>
-        </a>
-      </div>
+      <% end %>
     </div>
   </div>
   <div class="showcase__sponsors  container-fluid">
