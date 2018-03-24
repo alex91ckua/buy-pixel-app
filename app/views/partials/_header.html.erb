@@ -3,8 +3,8 @@
     <div class="row">
       <div class="header-top  col-12">
         <div class="header-top__languages">
-          <a class="language  language--current" href="#">English</a>
-          <a class="language" href="#">Arabic</a>
+          <%= link_to 'English', locale_path(:en), method: :patch, :class => "language #{I18n.locale == :en ? 'language--current' : ''}" %>
+          <%= link_to 'Arabic', locale_path(:ar), method: :patch, :class => "language #{I18n.locale == :ar ? 'language--current' : ''}" %>
         </div>
         <div class="header-top__socials">
           <a class="social" href="<%= Setting.twitter %>" target="_blank"><i class="fab fa-twitter"></i></a>
@@ -26,22 +26,22 @@
           <ul class="navbar-nav mr-0 ml-auto">
             <li class="nav-item">
               <!-- Data text needed for hover effects -->
-              <%= link_to 'About', root_path(:anchor => 'about'), :class => 'nav-link', :data => { :letters => 'About' } %>
+              <%= link_to t('header.menu.home'), root_path, :class => 'nav-link', :data => { :letters => t('header.menu.home') } %>
             </li>
             <li class="nav-item">
-              <%= link_to 'About project', root_path(:anchor => 'about'), :class => 'nav-link', :data => { :letters => 'About project' } %>
+              <%= link_to t('header.menu.about'), root_path(:anchor => 'about'), :class => 'nav-link', :data => { :letters => t('header.menu.about') } %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Recent Sponsors', root_path(:anchor => 'sponsors'), :class => 'nav-link', :data => { :letters => 'Recent Sponsors' } %>
+              <%= link_to t('header.menu.sponsors'), root_path(:anchor => 'sponsors'), :class => 'nav-link', :data => { :letters => t('header.menu.sponsors') } %>
             </li>
             <li class="nav-item">
-              <%= link_to 'FAQ', root_path(:anchor => 'faq'), :class => 'nav-link', :data => { :letters => 'FAQ' } %>
+              <%= link_to t('header.menu.faq'), root_path(:anchor => 'faq'), :class => 'nav-link', :data => { :letters => t('header.menu.faq') } %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Receipts', root_path(:anchor => 'buy-now'), :class => 'nav-link', :data => { :letters => 'Receipts' } %>
+              <%= link_to t('header.menu.receipts'), root_path(:anchor => 'buy-now'), :class => 'nav-link', :data => { :letters => t('header.menu.receipts') } %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Buy a Pixel Now', root_path(:anchor => 'buy-now'), :class => 'nav-btn', :data => { :text => 'Buy a Pixel Now' } %>
+              <%= link_to t('header.menu.buy_now'), root_path(:anchor => 'buy-now'), :class => 'nav-btn', :data => { :text => t('header.menu.buy_now') } %>
             </li>
           </ul>
         </div>

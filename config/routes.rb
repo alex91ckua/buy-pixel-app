@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   get 'charge/success', to: 'charges#success'
   post 'contact_us/create'
   get 'contact_us/status'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :locales, only: :update
 end

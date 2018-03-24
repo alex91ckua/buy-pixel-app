@@ -1,12 +1,12 @@
-en:
+ar:
   header:
     menu:
-      home: 'Home'
-      about: 'About Project'
-      sponsors: 'Recent Sponsors'
-      faq: 'FAQ'
-      receipts: 'Receipts'
-      buy_now: 'Buy a pixel now'
+      home: 'الصفحة الرئيسية'
+      about: 'حول المشروع'
+      sponsors: 'الرعاة الأخيرة'
+      faq: 'التعليمات'
+      receipts: 'المبالغ المستلمة'
+      buy_now: 'شراء بكسل الآن'
   terms:
     title: 'Terms & Conditions'
     main_text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.
