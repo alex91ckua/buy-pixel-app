@@ -1,4 +1,6 @@
 en:
+  product:
+    project_completed: 'Project completed. You cant buy more pixels.'
   header:
     menu:
       home: 'Home'

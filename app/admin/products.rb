@@ -1,21 +1,88 @@
 ActiveAdmin.register Product do
-  actions :all, except: [:destroy, :new, :create]
+  # actions :all, except: [:destroy, :new, :create]
   remove_filter :order_items, :updated_at
-  permit_params :name, :active, :price, :money_goal, :in_stock, :from_date, :to_date, :product_image
-
-  form(:html => { :multipart => true }) do |f|
-    f.inputs "Product" do
-      f.input :name
-      f.input :active
-      f.input :price
-      f.input :money_goal
-      f.input :in_stock
-      f.input :from_date
-      f.input :to_date
-      f.input :product_image, :as => :file
+  permit_params :name,
+                :active,
+                :price,
+                :money_goal,
+                :in_stock,
+                :from_date,
+                :to_date,
+                :product_image,
+                :description_1,
+                :description_2,
+                :description_1_ar,
+                :description_2_ar,
+                :slider_1_image_1,
+                :slider_1_image_2,
+                :slider_1_image_3,
+                :slider_2_image_1,
+                :slider_2_image_2,
+                :slider_2_image_3
+  form do |f|
+    panel 'Basic Info' do
+      f.inputs do
+        f.input :name
+        f.input :active
+        f.input :price
+        f.input :money_goal
+        f.input :in_stock
+        f.input :from_date
+        f.input :to_date
+        f.input :product_image
+        end
     end
-    f.button 'Update'
+    panel 'Description' do
+      f.inputs do
+        f.input :description_1, as: :froala_editor
+        f.input :description_2, as: :froala_editor
+        f.input :description_1_ar, as: :froala_editor
+        f.input :description_2_ar, as: :froala_editor
+      end
+    end
+    panel 'Slider 1' do
+      f.inputs do
+        f.input :slider_1_image_1, :as => :file, :hint => f.object.slider_1_image_1.present? ? \
+                                              image_tag(f.object.slider_1_image_1.url, width: 100) : \
+                                              content_tag(:span, 'no image selected')
+        f.input :slider_1_image_2, :as => :file, :hint => f.object.slider_1_image_2.present? ? \
+                                              image_tag(f.object.slider_1_image_2.url, width: 100) : \
+                                              content_tag(:span, 'no image selected')
+        f.input :slider_1_image_3, :as => :file, :hint => f.object.slider_1_image_3.present? ? \
+                                              image_tag(f.object.slider_1_image_3.url, width: 100) : \
+                                              content_tag(:span, 'no image selected')
+      end
+    end
+    panel 'Slider 2' do
+      f.inputs do
+        f.input :slider_2_image_1, :as => :file, :hint => f.object.slider_2_image_1.present? ? \
+                                              image_tag(f.object.slider_2_image_1.url, width: 100) : \
+                                              content_tag(:span, 'no image selected')
+        f.input :slider_2_image_2, :as => :file, :hint => f.object.slider_2_image_2.present? ? \
+                                              image_tag(f.object.slider_2_image_2.url, width: 100) : \
+                                              content_tag(:span, 'no image selected')
+        f.input :slider_2_image_3, :as => :file, :hint => f.object.slider_2_image_3.present? ? \
+                                              image_tag(f.object.slider_2_image_3.url, width: 100) : \
+                                              content_tag(:span, 'no image selected')
+      end
+    end
+    f.actions
   end
+
+  index do
+    selectable_column
+    column :id
+    column :name
+    column :price
+    column :product_image do |p|
+      if p.product_image.url
+        image_tag p.product_image.url, width: 100
+      end
+    end
+    column :created_at
+    actions
+  end
+
 
   # show do
   #   attributes_table do

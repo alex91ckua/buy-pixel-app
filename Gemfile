@@ -56,7 +56,10 @@ gem 'activeadmin_settings_cached'
 # simple cron
 gem 'whenever', require: false
 
+# WYSIWYG editor
+gem 'activeadmin_froala_editor'
 
+# Magnific Popup
 gem 'magnific-popup-rails', '~> 1.1.0'
 
 group :development, :test do

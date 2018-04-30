@@ -62,70 +62,94 @@
       </div>
       <div class="about__item  about__item--odd  col-12">
         <div class="row  align-items-center">
-          <div id="homepageCarousel1" class="item__slider  carousel slide  col-12  col-lg-6">
-            <ol class="carousel-indicators">
-              <li data-target="#homepageCarousel1" data-slide-to="0" class="active"></li>
-              <li data-target="#homepageCarousel1" data-slide-to="1"></li>
-              <li data-target="#homepageCarousel1" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="<%= asset_path('about-1.jpg') %>" alt="">
+
+          <% if @pixel_product.slider_1_image_1.url || @pixel_product.slider_1_image_2.url || @pixel_product.slider_1_image_3.url %>
+            <div id="homepageCarousel1" class="item__slider  carousel slide  col-12  col-lg-6">
+              <ol class="carousel-indicators">
+                <% if @pixel_product.slider_1_image_1.url %>
+                  <li data-target="#homepageCarousel1" data-slide-to="0" class="active"></li>
+                <% end %>
+                <% if @pixel_product.slider_1_image_2.url %>
+                  <li data-target="#homepageCarousel1" data-slide-to="1"></li>
+                <% end %>
+                <% if @pixel_product.slider_1_image_3.url %>
+                  <li data-target="#homepageCarousel1" data-slide-to="2"></li>
+                <% end %>
+              </ol>
+              <div class="carousel-inner">
+                <% if @pixel_product.slider_1_image_1.url %>
+                  <div class="carousel-item active">
+                    <img src="<%= @pixel_product.slider_1_image_1.url %>" alt="">
+                  </div>
+                <% end %>
+                <% if @pixel_product.slider_1_image_2.url %>
+                  <div class="carousel-item ">
+                    <img src="<%= @pixel_product.slider_1_image_2.url %>" alt="">
+                  </div>
+                <% end %>
+                <% if @pixel_product.slider_1_image_3.url %>
+                  <div class="carousel-item ">
+                    <img src="<%= @pixel_product.slider_1_image_3.url %>" alt="">
+                  </div>
+                <% end %>
+
               </div>
-              <div class="carousel-item">
-                <img src="<%= asset_path('about-1.jpg') %>" alt="">
-              </div>
-              <div class="carousel-item">
-                <img src="<%= asset_path('about-1.jpg') %>" alt="">
-              </div>
+              <a class="carousel-control-prev" href="#homepageCarousel1" role="button" data-slide="prev">
+                <i class="fas fa-angle-left"></i>
+              </a>
+              <a class="carousel-control-next" href="#homepageCarousel1" role="button" data-slide="next">
+                <i class="fas fa-angle-right"></i>
+              </a>
             </div>
-            <a class="carousel-control-prev" href="#homepageCarousel1" role="button" data-slide="prev">
-              <i class="fas fa-angle-left"></i>
-            </a>
-            <a class="carousel-control-next" href="#homepageCarousel1" role="button" data-slide="next">
-              <i class="fas fa-angle-right"></i>
-            </a>
-          </div>
+          <% end %>
+
           <div class="item__descr  col-12  col-lg-6">
-            <h3>Project Overview</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique.</p>
-            <p>Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique.</p>
-            <h4>How 'Buy A Pixel' Works</h4>
-            <p>This fundraiser works like a jig-saw puzzle. Every time you purchase pixels, that number of pixel is removed from the board, revealing the image below!</p>
-            <p><b>It's not only fun, but goes to helping people in need!</b></p>
+            <%= @description_1.html_safe %>
           </div>
         </div>
       </div>
       <div class="about__item  about__item--even  col-12">
         <div class="row  align-items-center">
-          <div id="homepageCarousel2" class="item__slider  carousel slide  col-12  col-lg-6  order-lg-2">
-            <ol class="carousel-indicators">
-              <li data-target="#homepageCarousel2" data-slide-to="0" class="active"></li>
-              <li data-target="#homepageCarousel2" data-slide-to="1"></li>
-              <li data-target="#homepageCarousel2" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="<%= asset_path('about-2.jpg') %>" alt="">
+          <% if @pixel_product.slider_2_image_1.url || @pixel_product.slider_2_image_2.url || @pixel_product.slider_2_image_3.url %>
+            <div id="homepageCarousel2" class="item__slider  carousel slide  col-12  col-lg-6  order-lg-2">
+              <ol class="carousel-indicators">
+                <% if @pixel_product.slider_2_image_1.url %>
+                  <li data-target="#homepageCarousel2" data-slide-to="0" class="active"></li>
+                <% end %>
+                <% if @pixel_product.slider_2_image_2.url %>
+                  <li data-target="#homepageCarousel2" data-slide-to="1"></li>
+                <% end %>
+                <% if @pixel_product.slider_2_image_3.url %>
+                  <li data-target="#homepageCarousel2" data-slide-to="2"></li>
+                <% end %>
+              </ol>
+              <div class="carousel-inner">
+                <% if @pixel_product.slider_2_image_1.url %>
+                  <div class="carousel-item active">
+                    <img src="<%= @pixel_product.slider_2_image_1.url %>" alt="">
+                  </div>
+                <% end %>
+                <% if @pixel_product.slider_2_image_2.url %>
+                  <div class="carousel-item ">
+                    <img src="<%= @pixel_product.slider_1_image_2.url %>" alt="">
+                  </div>
+                <% end %>
+                <% if @pixel_product.slider_2_image_3.url %>
+                  <div class="carousel-item ">
+                    <img src="<%= @pixel_product.slider_2_image_3.url %>" alt="">
+                  </div>
+                <% end %>
               </div>
-              <div class="carousel-item">
-                <img src="<%= asset_path('about-2.jpg') %>" alt="">
-              </div>
-              <div class="carousel-item">
-                <img src="<%= asset_path('about-2.jpg') %>" alt="">
-              </div>
+              <a class="carousel-control-prev" href="#homepageCarousel2" role="button" data-slide="prev">
+                <i class="fas fa-angle-left"></i>
+              </a>
+              <a class="carousel-control-next" href="#homepageCarousel2" role="button" data-slide="next">
+                <i class="fas fa-angle-right"></i>
+              </a>
             </div>
-            <a class="carousel-control-prev" href="#homepageCarousel2" role="button" data-slide="prev">
-              <i class="fas fa-angle-left"></i>
-            </a>
-            <a class="carousel-control-next" href="#homepageCarousel2" role="button" data-slide="next">
-              <i class="fas fa-angle-right"></i>
-            </a>
-          </div>
+          <% end %>
           <div class="item__descr  col-12  col-lg-6  col-xl-5  offset-xl-1  order-lg-1">
-            <h3>Other Headline</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique.</p>
-            <p><b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate</b></p>
+            <%= @description_2.html_safe %>
             <a href="#buy-now" data-text="Buy a Pixel Now">Buy a Pixel Now</a>
           </div>
         </div>
@@ -148,44 +172,51 @@
             <div id="pixelsContainer" class="img__container" style="background-image: url('<%= asset_path('about-1.jpg') %>')"  data-percent="<%= @collected_percentage %>"></div>
           </div>
           <div class="buy-pixel__form  col-12  col-lg-5">
-            <div class="form__top">
-              <div class="price"><%= number_to_currency @pixel_product.price %> per pixel</div>
-              <div class="available"><%= @pixel_product.in_stock %> Total Pixels<br><span>available</span></div>
-              <div class="collected-money">
-                <p class="money__descr">collected</p>
-                <p class="money__value"><%= number_to_currency @pixel_product.money_collected, precision: 0 %></p>
-              </div>
-              <div class="collected-percent">
-                <p class="percent__descr">collected %</p>
-                <p class="percent__value"><%= @collected_percentage %></p>
-              </div>
-              <div class="progress">
-                <div class="progress__current" style="width: <%= @collected_percentage %>%"></div>
-              </div>
-              <div class="goal">
-                <p class="goal__descr">Goal, $</p>
-                <p class="goal__value"><%= number_to_currency @pixel_product.money_goal, precision: 0 %></p>
-              </div>
-              <div class="days-left">
-                <p class="days-left__descr">Left</p>
-                <p class="days-left__value"><%= @days_left %> days</p>
-              </div>
-              <div class="item-purchased">
-                <p class="item-purchased__descr">item purchased</p>
-                <p class="item-purchased__value"><%= @pixel_product.item_purchased %> rewards</p>
-              </div>
-              <div class="campaign-started">
-                <p class="campaign-started__descr">CAMPAIGN HAS BEEN STARTED</p>
-                <p class="campaign-started__value"><%= @pixel_product.from_date.strftime("%B %d, %Y") %></p>
-              </div>
-            </div>
 
-            <%= form_for :order_item, :url => order_items_path,:html => {:id => 'buy_form'} do |f| %>
-              <div class="form__bottom">
-                <%= f.select :quantity, (1..1000).to_a, {}, { :class => 'quantity  js-select2' } %>
-                <%= f.hidden_field :product_id, value: @pixel_product.id %>
-                <%= link_to 'Buy pixels', "#", :class => 'submit', :onclick => "jQuery('#buy_form').submit()", :data => { :text => 'Buy pixels' } %>
+
+            <% if @days_left > 0 %>
+
+              <div class="form__top">
+                <div class="price"><%= number_to_currency @pixel_product.price, precision: 0 %> per pixel</div>
+                <div class="available"><%= @pixel_product.in_stock %> Total Pixels<br><span>available</span></div>
+                <div class="collected-money">
+                  <p class="money__descr">collected</p>
+                  <p class="money__value"><%= number_to_currency @pixel_product.money_collected, precision: 0 %></p>
+                </div>
+                <div class="collected-percent">
+                  <p class="percent__descr">collected %</p>
+                  <p class="percent__value"><%= @collected_percentage %></p>
+                </div>
+                <div class="progress">
+                  <div class="progress__current" style="width: <%= @collected_percentage %>%"></div>
+                </div>
+                <div class="goal">
+                  <p class="goal__descr">Goal, $</p>
+                  <p class="goal__value"><%= number_to_currency @pixel_product.money_goal, precision: 0 %></p>
+                </div>
+                <div class="days-left">
+                  <p class="days-left__descr">Left</p>
+                  <p class="days-left__value"><%= @days_left %> days</p>
+                </div>
+                <div class="item-purchased">
+                  <p class="item-purchased__descr">item purchased</p>
+                  <p class="item-purchased__value"><%= @pixel_product.item_purchased %> rewards</p>
+                </div>
+                <div class="campaign-started">
+                  <p class="campaign-started__descr">CAMPAIGN HAS BEEN STARTED</p>
+                  <p class="campaign-started__value"><%= @pixel_product.from_date.strftime("%B %d, %Y") %></p>
+                </div>
               </div>
+
+              <%= form_for :order_item, :url => order_items_path,:html => {:id => 'buy_form'} do |f| %>
+                <div class="form__bottom">
+                  <%= f.select :quantity, (1..1000).to_a, {}, { :class => 'quantity  js-select2' } %>
+                  <%= f.hidden_field :product_id, value: @pixel_product.id %>
+                  <%= link_to 'Buy pixels', "#", :class => 'submit', :onclick => "jQuery('#buy_form').submit()", :data => { :text => 'Buy pixels' } %>
+                </div>
+              <% end %>
+            <% else %>
+              <%= t('product.project_completed') %>
             <% end %>
 
           </div>
@@ -267,7 +298,7 @@
           <h3 class="ask-questions__title">Ask your Question</h3>
           <div class="ask-questions__line"></div>
 
-          <%= render 'home/contact_us_form' %>
+          <%= render 'contact_us_form' %>
         </div>
       </div>
     </div>

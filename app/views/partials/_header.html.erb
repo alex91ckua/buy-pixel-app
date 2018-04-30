@@ -15,8 +15,7 @@
       <nav class="header-nav  navbar  navbar-expand-lg col-12">
         <%= link_to root_path, :class => 'navbar-brand' do %>
           <img src="<%= asset_path('logo.png') %>" alt="Al Ihsan Foundation">
-      <% end %>
-
+        <% end %>
         <button class="navbar-toggler  collapsed" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
           <span class="toggler-icon"></span>
           <span class="toggler-icon"></span>
@@ -24,25 +23,26 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarHeader">
           <ul class="navbar-nav mr-0 ml-auto">
-            <li class="nav-item">
-              <!-- Data text needed for hover effects -->
-              <%= link_to t('header.menu.home'), root_path, :class => 'nav-link', :data => { :letters => t('header.menu.home') } %>
-            </li>
-            <li class="nav-item">
-              <%= link_to t('header.menu.about'), root_path(:anchor => 'about'), :class => 'nav-link', :data => { :letters => t('header.menu.about') } %>
-            </li>
-            <li class="nav-item">
-              <%= link_to t('header.menu.sponsors'), root_path(:anchor => 'sponsors'), :class => 'nav-link', :data => { :letters => t('header.menu.sponsors') } %>
-            </li>
-            <li class="nav-item">
-              <%= link_to t('header.menu.faq'), root_path(:anchor => 'faq'), :class => 'nav-link', :data => { :letters => t('header.menu.faq') } %>
-            </li>
-            <li class="nav-item">
-              <%= link_to t('header.menu.receipts'), root_path(:anchor => 'buy-now'), :class => 'nav-link', :data => { :letters => t('header.menu.receipts') } %>
-            </li>
-            <li class="nav-item">
-              <%= link_to t('header.menu.buy_now'), root_path(:anchor => 'buy-now'), :class => 'nav-btn', :data => { :text => t('header.menu.buy_now') } %>
-            </li>
+            <% if controller.controller_name == 'products' %>
+              <li class="nav-item">
+                <%= link_to t('header.menu.home'), product_path(params[:id]), :class => 'nav-link', :data => { :letters => t('header.menu.home') } %>
+              </li>
+              <li class="nav-item">
+                <%= link_to t('header.menu.about'), product_path(params[:id], anchor: 'about'), :class => 'nav-link', :data => { :letters => t('header.menu.about') } %>
+              </li>
+              <li class="nav-item">
+                <%= link_to t('header.menu.sponsors'), product_path(params[:id], anchor: 'sponsors'), :class => 'nav-link', :data => { :letters => t('header.menu.sponsors') } %>
+              </li>
+              <li class="nav-item">
+                <%= link_to t('header.menu.faq'), product_path(params[:id], anchor: 'faq'), :class => 'nav-link', :data => { :letters => t('header.menu.faq') } %>
+              </li>
+              <li class="nav-item">
+                <%= link_to t('header.menu.receipts'), product_path(params[:id], anchor: 'buy-now'), :class => 'nav-link', :data => { :letters => t('header.menu.receipts') } %>
+              </li>
+              <li class="nav-item">
+                <%= link_to t('header.menu.buy_now'), product_path(params[:id], anchor: 'buy-now'), :class => 'nav-btn', :data => { :text => t('header.menu.buy_now') } %>
+              </li>
+            <% end %>
           </ul>
         </div>
       </nav>

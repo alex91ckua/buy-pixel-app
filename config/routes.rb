@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   post 'contact_us/create'
   get 'contact_us/status'
   resources :locales, only: :update
+  resources :products, only: [:index, :show]
 end
