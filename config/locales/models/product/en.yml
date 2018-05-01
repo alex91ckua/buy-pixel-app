@@ -1,0 +1,12 @@
+en:
+  activerecord:
+    attributes:
+      product:
+        name: Fundraiser Project Name
+        product_image: Pixelated Feature Image
+        in_stock: Number of Pixels For Sale
+        price: Price Per Pixel
+        description_1: 'Explainer text #1'
+        description_2: 'Explainer text #2'
+        description_1_ar: 'Arabic Explainer text #1'
+        description_2_ar: 'Arabic Explainer text #2'

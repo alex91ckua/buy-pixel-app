@@ -11,6 +11,8 @@ module AlihsanPixelApp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
     config.i18n.available_locales = [:en, :ar]
@@ -21,3 +23,4 @@ module AlihsanPixelApp
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
