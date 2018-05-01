@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180430184141) do
+ActiveRecord::Schema.define(version: 20180501201117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,11 @@ ActiveRecord::Schema.define(version: 20180430184141) do
     t.string "slider_2_image_3"
     t.text "description_1_ar"
     t.text "description_2_ar"
+    t.string "headline_1"
+    t.string "headline_2"
+    t.string "head_description"
+    t.string "video"
+    t.integer "custom_pixel_percentage"
   end
 
   create_table "settings", force: :cascade do |t|

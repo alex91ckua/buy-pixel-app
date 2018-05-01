@@ -18,19 +18,33 @@ ActiveAdmin.register Product do
                 :slider_1_image_3,
                 :slider_2_image_1,
                 :slider_2_image_2,
-                :slider_2_image_3
+                :slider_2_image_3,
+                :headline_1,
+                :headline_2,
+                :head_description,
+                :video,
+                :custom_pixel_percentage
   form do |f|
     panel 'Basic Info' do
       f.inputs do
         f.input :name
         f.input :active
         f.input :price
+        f.input :custom_pixel_percentage
         f.input :money_goal
         f.input :in_stock
         f.input :from_date
         f.input :to_date
         f.input :product_image
+        f.input :video
         end
+    end
+    panel 'Header' do
+      f.inputs do
+        f.input :headline_1
+        f.input :headline_2
+        f.input :head_description, as: :text
+      end
     end
     panel 'Description' do
       f.inputs do

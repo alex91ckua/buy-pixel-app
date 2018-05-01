@@ -13,6 +13,8 @@ class ProductsController < ApplicationController
     total_products = @pixel_product.item_purchased + @pixel_product.in_stock
     @collected_percentage = (@pixel_product.item_purchased * 100) / total_products
 
+    @collected_percentage = @pixel_product.custom_pixel_percentage if @pixel_product.custom_pixel_percentage
+
     @latest_orders = Order.order('created_at DESC').where(order_status: Order.order_statuses[:placed]).limit(18)
 
     if I18n.locale == :en

@@ -10,3 +10,6 @@ en:
         description_2: 'Explainer text #2'
         description_1_ar: 'Arabic Explainer text #1'
         description_2_ar: 'Arabic Explainer text #2'
+        headline_1: 'Headline #1 (Smaller one)'
+        headline_2: 'Headline #2 (Larger one)'
+        head_description: 'Description Text (Header)'

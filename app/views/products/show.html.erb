@@ -4,17 +4,16 @@
   <div class="container">
     <div class="showcase__row-1  row  align-items-center">
       <div class="showcase__descr  col-12  col-lg-6">
-        <h2>Sponsorship Headline Here</h2>
-        <h1>Buy a pixel now & help make a difference</h1>
-        <p>We are making a real difference in the community. You can contribute to this by purchasing a pixel. Plus more content can go here if you would like it to. Plus more content can go here if you would like it to.</p>
-        <p>Plus more content can go here if you would like it to.</p>
+        <h2><%= @pixel_product.headline_1 %></h2>
+        <h1><%= @pixel_product.headline_2 %></h1>
+        <%= simple_format(@pixel_product.head_description) %>
         <div class="descr__btns">
           <!-- Data text needed for hover effects -->
           <a class="descr__btn  descr__btn--1" href="#buy-now" data-text="Buy a Pixel Now">Buy a Pixel Now</a>
           <a class="descr__btn  descr__btn--2" href="#about" data-text="Learn more">Learn more</a>
         </div>
       </div>
-      <% if !Setting.video_url.empty? %>
+      <% if @pixel_product.video.url %>
         <div class="showcase__video  col-12  col-sm-10  offset-sm-1  col-lg-6  offset-lg-0">
           <div class="video__descr">
             <svg class="descr__arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="31px" height="28px">
@@ -25,7 +24,7 @@
           </div>
           <a href="#homepageVideo1" class="video__link  afterglow">
             <video id="homepageVideo1" width="960" height="540">
-              <source type="video/mp4" src="<%= Setting.video_url %>" />
+              <source type="video/mp4" src="<%= @pixel_product.video.url %>" />
             </video>
             <img class="video__preview" src="<%= asset_path('showcase_video.jpg') %>" alt="">
             <svg class="video__play-btn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="137px" height="137px">

@@ -1,6 +1,5 @@
 # config/app.yml for rails-settings-cached
 defaults: &defaults
-  video_url: ''
   address: ''
   copy_text: ''
   phone: ''

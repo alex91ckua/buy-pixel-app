@@ -7,6 +7,7 @@ class Product < ApplicationRecord
   mount_uploader :slider_2_image_1, ProductImageUploader
   mount_uploader :slider_2_image_2, ProductImageUploader
   mount_uploader :slider_2_image_3, ProductImageUploader
+  mount_uploader :video, VideoUploader
   validates :name, presence: true
   validates :money_goal, presence: true
   validates :product_image, presence: true
@@ -17,6 +18,7 @@ class Product < ApplicationRecord
   validates :from_date, presence: true
   validates :to_date, presence: true
   validates :in_stock, presence: true
+  validates_inclusion_of :custom_pixel_percentage, in: 0..100, allow_blank: true
   default_scope { where(active: true) }
   after_initialize :init
 
