@@ -1,5 +1,9 @@
 en:
   activerecord:
+    models:
+      product:
+        one: Fundraising Project
+        other: Fundraising Projects
     attributes:
       product:
         name: Fundraiser Project Name
