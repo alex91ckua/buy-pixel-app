@@ -50,8 +50,22 @@ ActiveAdmin.register Product do
       f.inputs do
         f.input :description_1, as: :froala_editor
         f.input :description_2, as: :froala_editor
-        f.input :description_1_ar, as: :froala_editor
-        f.input :description_2_ar, as: :froala_editor
+        f.input :description_1_ar, as: :froala_editor, input_html:
+            {
+              data: {
+                options: {
+                  direction: 'rtl'
+                }
+              }
+            }
+        f.input :description_2_ar, as: :froala_editor, input_html:
+            {
+                data: {
+                    options: {
+                        direction: 'rtl'
+                    }
+                }
+            }
       end
     end
     panel 'Slider 1' do
