@@ -25,6 +25,16 @@ ActiveAdmin.register Product do
                 :video_id,
                 :custom_pixel_percentage,
                 faqs_attributes: [:id, :question, :answer, :_destroy]
+
+
+  controller do
+    def find_resource
+      scoped_collection.where(slug: params[:id]).last!
+    rescue ActiveRecord::RecordNotFound
+      scoped_collection.find(params[:id])
+    end
+  end
+
   form do |f|
     panel 'Basic Info' do
       f.inputs do

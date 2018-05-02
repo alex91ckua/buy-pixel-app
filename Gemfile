@@ -59,6 +59,9 @@ gem 'whenever', require: false
 # WYSIWYG editor
 gem 'activeadmin_froala_editor'
 
+# To make url's pretty
+gem 'friendly_id', '~> 5.1.0'
+
 # Magnific Popup
 gem 'magnific-popup-rails', '~> 1.1.0'
 

@@ -1,12 +1,13 @@
 class ProductsController < ApplicationController
 
   def index
-    # page
+    @products = Product.all
+    render layout: false
   end
 
   def show
     @order_item = current_order.order_items.new
-    @pixel_product = Product.find(params[:id])
+    @pixel_product = Product.friendly.find(params[:id])
     @days_left = (@pixel_product.to_date - Time.now.to_date).to_i
 
     # calculate percent of purchased

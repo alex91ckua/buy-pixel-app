@@ -257,7 +257,7 @@
         <h3 class="faq__title">FAQ's</h3>
         <div class="faq__line"></div>
         <div class="faq__accordion" id="accordion">
-          
+
           <% @pixel_product.faqs.each_with_index do |faq, i| %>
             <div class="accordion__item">
               <div class="item__heading  collapsed " data-toggle="collapse" data-target="#collapse_<%= faq.id %>" aria-expanded="true" aria-controls="collapse_<%= faq.id %>">
