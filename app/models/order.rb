@@ -13,7 +13,7 @@ class Order < ApplicationRecord
     order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
   end
 
-  def total
+  def calc_total
     tax_percent = 0 # Tax in percent
     if tax_percent.zero?
       total = subtotal
@@ -50,7 +50,7 @@ class Order < ApplicationRecord
   end
 
   def update_total
-    self[:total] = total
+    self[:total] = calc_total
   end
 
   def update_total_cents

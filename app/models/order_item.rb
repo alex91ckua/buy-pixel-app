@@ -25,9 +25,7 @@ class OrderItem < ApplicationRecord
 
   def validate_stock
     in_stock = product.in_stock - self[:quantity]
-    if in_stock < 0
-      errors.add(:product, "can't be purchased '#{product.name}', there is only #{product.in_stock} left!")
-    end
+    errors.add(:product, "can't be purchased '#{product.name}', there is only #{product.in_stock} left!") if in_stock < 0
   end
 
   def product_present
