@@ -13,7 +13,7 @@
           <a class="descr__btn  descr__btn--2" href="#about" data-text="Learn more">Learn more</a>
         </div>
       </div>
-      <% if @pixel_product.video.url %>
+      <% if @pixel_product.video_id %>
         <div class="showcase__video  col-12  col-sm-10  offset-sm-1  col-lg-6  offset-lg-0">
           <div class="video__descr">
             <svg class="descr__arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="31px" height="28px">
@@ -23,8 +23,7 @@
             <p class="descr__text">See where all the<br>hard work goes</p>
           </div>
           <a href="#homepageVideo1" class="video__link  afterglow">
-            <video id="homepageVideo1" width="960" height="540">
-              <source type="video/mp4" src="<%= @pixel_product.video.url %>" />
+            <video id="homepageVideo1" width="960" height="540" data-youtube-id="<%= @pixel_product.video_id %>">
             </video>
             <img class="video__preview" src="<%= asset_path('showcase_video.jpg') %>" alt="">
             <svg class="video__play-btn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="137px" height="137px">
@@ -55,13 +54,12 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h1 class="about__title">Water Purification Project</h1>
+        <h1 class="about__title"><%= @pixel_product.name %></h1>
         <h2 class="about__subtitle">Purchase a pixel & help be the solution</h2>
         <div class="about__line"></div>
       </div>
       <div class="about__item  about__item--odd  col-12">
         <div class="row  align-items-center">
-
           <% if @pixel_product.slider_1_image_1.url || @pixel_product.slider_1_image_2.url || @pixel_product.slider_1_image_3.url %>
             <div id="homepageCarousel1" class="item__slider  carousel slide  col-12  col-lg-6">
               <ol class="carousel-indicators">
@@ -91,7 +89,6 @@
                     <img src="<%= @pixel_product.slider_1_image_3.url %>" alt="">
                   </div>
                 <% end %>
-
               </div>
               <a class="carousel-control-prev" href="#homepageCarousel1" role="button" data-slide="prev">
                 <i class="fas fa-angle-left"></i>

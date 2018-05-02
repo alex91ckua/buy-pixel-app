@@ -7,7 +7,6 @@ class Product < ApplicationRecord
   mount_uploader :slider_2_image_1, ProductImageUploader
   mount_uploader :slider_2_image_2, ProductImageUploader
   mount_uploader :slider_2_image_3, ProductImageUploader
-  mount_uploader :video, VideoUploader
   validates :name, presence: true
   validates :money_goal, presence: true
   validates :product_image, presence: true

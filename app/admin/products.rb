@@ -22,7 +22,7 @@ ActiveAdmin.register Product do
                 :headline_1,
                 :headline_2,
                 :head_description,
-                :video,
+                :video_id,
                 :custom_pixel_percentage
   form do |f|
     panel 'Basic Info' do
@@ -36,7 +36,7 @@ ActiveAdmin.register Product do
         f.input :from_date
         f.input :to_date
         f.input :product_image
-        f.input :video
+        f.input :video_id
         end
     end
     panel 'Header' do

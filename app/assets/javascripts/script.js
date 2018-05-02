@@ -7,7 +7,7 @@ var numberArray = [[53, 24, 89, 75, 95, 99, 45, 63, 35, 37, 6, 22, 88, 90, 88, 2
 
 $j( document ).on('turbolinks:load', function() {
 
-    afterglow.init();
+    // afterglow.init();
     FontAwesome.dom.i2svg();
 
   // Smooth scrolling to internal links

@@ -35,6 +35,10 @@ img {
   margin: 0 auto;
 }
 
+.mfp-figure{
+  &:after { box-shadow: none !important; }
+}
+
 .mfp-zoom-in {
 
   /* start state */

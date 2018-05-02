@@ -18,3 +18,4 @@ en:
         headline_2: 'Headline #2 (Larger one)'
         head_description: 'Description Text (Header)'
         custom_pixel_percentage: 'Override Pixels Sold %'
+        video_id: 'Youtube Video ID'
