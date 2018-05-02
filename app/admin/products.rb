@@ -23,7 +23,8 @@ ActiveAdmin.register Product do
                 :headline_2,
                 :head_description,
                 :video_id,
-                :custom_pixel_percentage
+                :custom_pixel_percentage,
+                faqs_attributes: [:id, :question, :answer, :_destroy]
   form do |f|
     panel 'Basic Info' do
       f.inputs do
@@ -66,6 +67,16 @@ ActiveAdmin.register Product do
                     }
                 }
             }
+      end
+    end
+    panel 'FAQ' do
+      f.inputs do
+        f.has_many :faqs, heading: false,
+                   allow_destroy: true,
+                   new_record: true do |faq|
+          faq.input :question
+          faq.input :answer
+        end
       end
     end
     panel 'Slider 1' do

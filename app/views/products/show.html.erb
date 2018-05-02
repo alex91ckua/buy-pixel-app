@@ -257,36 +257,17 @@
         <h3 class="faq__title">FAQ's</h3>
         <div class="faq__line"></div>
         <div class="faq__accordion" id="accordion">
-          <div class="accordion__item">
-            <div class="item__heading  collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-              <h4>Where does the money go?</h4><i class="fas fa-angle-down"></i>
-            </div>
-            <div id="collapse1" class="item__descr  collapse " aria-labelledby="heading1" data-parent="#accordion">
-              <div class="descr__wrap">
-                Install a trunk guard at the base of the tree to keep works its seds nutrient and water system from being cut. Trunk ours guards also protect trees from rodents and other small animals. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, deleniti.
+          
+          <% @pixel_product.faqs.each_with_index do |faq, i| %>
+            <div class="accordion__item">
+              <div class="item__heading  collapsed " data-toggle="collapse" data-target="#collapse_<%= faq.id %>" aria-expanded="true" aria-controls="collapse_<%= faq.id %>">
+                <h4><%= faq.question %></h4><i class="fas fa-angle-down"></i>
+              </div>
+              <div id="collapse_<%= faq.id %>" class="item__descr  collapse " aria-labelledby="heading_<%= faq.id %>" data-parent="#accordion">
+                <div class="descr__wrap"><%= faq.answer %></div>
               </div>
             </div>
-          </div>
-          <div class="accordion__item">
-            <div class="item__heading  collapsed" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
-              <h4>Where does the money go?</h4><i class="fas fa-angle-down"></i>
-            </div>
-            <div id="collapse2" class="item__descr  collapse " aria-labelledby="heading2" data-parent="#accordion">
-              <div class="descr__wrap">
-                Install a trunk guard at the base of the tree to keep works its seds nutrient and water system from being cut. Trunk ours guards also protect trees from rodents and other small animals. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione neque quae repellendus iusto rem in quisquam voluptas voluptatibus facere incidunt odio cum cupiditate explicabo, fugit quos sit. Est omnis, in.
-              </div>
-            </div>
-          </div>
-          <div class="accordion__item">
-            <div class="item__heading  collapsed" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
-              <h4>Where does the money go?</h4><i class="fas fa-angle-down"></i>
-            </div>
-            <div id="collapse3" class="item__descr  collapse " aria-labelledby="heading3" data-parent="#accordion">
-              <div class="descr__wrap">
-                Install a trunk guard at the base of the tree to keep works its seds nutrient and water system from being cut. Trunk ours guards also protect trees from rodents and other small animals.
-              </div>
-            </div>
-          </div>
+          <% end %>
         </div>
       </div>
       <div class="questions__ask-question  col-12  col-md-8  offset-md-2   col-lg-6  offset-lg-0">

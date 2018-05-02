@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   has_many :order_items
+  has_many :faqs
   mount_uploader :product_image, ProductImageUploader
   mount_uploader :slider_1_image_1, ProductImageUploader
   mount_uploader :slider_1_image_2, ProductImageUploader
@@ -20,6 +21,8 @@ class Product < ApplicationRecord
   validates_inclusion_of :custom_pixel_percentage, in: 0..100, allow_blank: true
   default_scope { where(active: true) }
   after_initialize :init
+
+  accepts_nested_attributes_for :faqs
 
   def init
     self.money_collected = 0
