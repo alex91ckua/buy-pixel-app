@@ -19,13 +19,13 @@
 
   .showcase__descr {
     transition: all 0.3s;
+    text-align: center;
 
     h2 {
       margin-bottom: 15px;
       font-family: "RobotoSlabBold";
       color: #f5b86a;
       font-size: 20px;
-      text-align: center;
     }
 
     h1 {
@@ -33,19 +33,16 @@
       font-family: "RobotoSlabBold";
       color: $white;
       font-size: 30px;
-      text-align: center;
     }
 
     p {
       font-size: "OpenSansLight";
       color: $white;
-      text-align: center;
       font-size: 16px;
       line-height: 27px;
     }
 
     .descr__btns {
-      text-align: center;
     }
 
     .descr__btn--1 {
@@ -220,30 +217,24 @@
     padding-bottom: 30px;
     padding-left: 0;
     padding-right: 0;
+    text-align: left;
 
     h2 {
       margin-bottom: 5px;
       font-size: 24px;
-      text-align: left;
     }
 
     h1 {
       margin-bottom: 25px;
       font-size: 40px;
-      text-align: left;
 
       @include media-breakpoint-up(xl) {
         font-size: 53px;
       }
     }
 
-    p {
-      text-align: left;
-    }
-
     .descr__btns {
       margin-top: 40px;
-      text-align: left;
     }
 
     .descr__btn--1 {
