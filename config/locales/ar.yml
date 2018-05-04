@@ -30,3 +30,4 @@ ar:
       google_plus: 'Google+ URL'
       email_address: 'Email address (for contact form)'
       default_from_email_address: 'Sender (from) email'
+      footer_text: 'Footer Text'

@@ -9,6 +9,7 @@ defaults: &defaults
   google_plus: ''
   email_address: 'example@mail.com'
   default_from_email_address: 'example@mail.com'
+  footer_text: ''
 
 development:
   <<: *defaults

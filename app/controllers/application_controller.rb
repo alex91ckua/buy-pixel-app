@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
     I18n.locale = session[:locale] || I18n.default_locale
   end
 
+  def set_admin_locale
+    I18n.locale = :en
+  end
+
   helper_method :current_order
 
   def current_order

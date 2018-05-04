@@ -4,6 +4,7 @@ ActiveadminSettingsCached.configure do |config|
       youtube: :url,
       twitter: :url,
       facebook: :url,
-      video_url: :url
+      video_url: :url,
+      footer_text: :text
   }
 end
