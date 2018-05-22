@@ -1,24 +1,19 @@
-# README
+# Buy pixel application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple rails ecommerce app which allows you to buy a product using Stripe payment gateway. 
 
-Things you may want to cover:
+### Gems used
 
-* Ruby version
+- ActiveAdmin for admin panel
+- Stripe as payment gateway
+- Carrierwave as file uploader
+- friendly_id to make pretty product page url
+- activeadmin_froala_editor as WYSIWYG editor for ActiveAdmin
 
-* System dependencies
+### Installation
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```sh
+$ rails db:create db:migrate
+$ rails db:seed
+$ rails s
+```
