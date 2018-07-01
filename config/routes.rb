@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resource :cart, only: [:show, :create]
   root 'home#index'
   resource :charge, only: [:new, :create]
+  get 'charge/execute', to: 'charges#execute'
   resource :privacy_policy, :path => 'privacy-policy', only: [:show]
   resource :terms_and_conditions, :path => 'terms', only: [:show]
   get 'charge/success', to: 'charges#success'

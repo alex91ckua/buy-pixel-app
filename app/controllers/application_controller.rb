@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
       Order.find(session[:order_id])
     else
       order = Order.new
+      # byebug
       order.order_status_id = Order.order_statuses[:in_progress]
       order
     end

@@ -1,24 +1,57 @@
+require 'paypal-sdk-rest'
+
 class ChargesController < ApplicationController
   before_action :cart_exist, only: [:new, :create]
 
+  def execute
+    payment = PayPal::SDK::REST::DataTypes::Payment.find(params[:paymentId])
+    if payment.execute(payer_id: params[:PayerID])
+      @transaction_id = params[:paymentId]
+      payer = payment.payer
+      @billing_name = "#{payer.payer_info.first_name} #{payer.payer_info.last_name}"
+      complete_order
+      redirect_to charge_success_path
+    else
+      # Error Hash
+      flash[:danger] = payment.error
+      redirect_to new_charge_path
+    end
+  end
+
   def create
 
-    customer = Stripe::Customer.create( :email => params[:stripeEmail],
-                                        :source  => params[:stripeToken]
+    # PayPal::SDK::REST.set_config(
+    #     :mode => "sandbox", # "sandbox" or "live"
+    #     :client_id => "EBWKjlELKMYqRNQ6sYvFo64FtaRLRR5BdHEESmha49TM",
+    #     :client_secret => "EO422dn3gQLgDbuwqTjzrFgFtaRLRR5BdHEESmha49TM")
+
+    # Build Payment object
+    amount = ActionController::Base.helpers.number_with_precision(current_order.total, precision: 2)
+    @payment = PayPal::SDK::REST::DataTypes::Payment.new(
+      intent:  'sale',
+      payer:  {
+        payment_method:  'paypal'
+      },
+      redirect_urls: {
+        return_url: charge_execute_url,
+        cancel_url: root_url
+      },
+      transactions: [{
+        amount: {
+          total:  amount,
+          currency: 'USD'
+        }
+      }]
     )
 
-    charge = Stripe::Charge.create( :customer    => customer.id,
-                                    :amount      => current_order.total_cents, # Amount in cents
-                                    :description => 'Al-Ihsan Order',
-                                    :currency    => 'aud')
-    @transaction_id = charge.id
-    @billing_name = params[:stripeBillingName]
-    complete_order
-    redirect_to charge_success_path
-
-  rescue Stripe::CardError => e
-    flash[:danger] = e.message
-    redirect_to new_charge_path
+    if @payment.create
+      redirect_url = @payment.links.find{|v| v.method == 'REDIRECT' }.href
+      redirect_to redirect_url
+    else
+      # @payment.error  # Error Hash
+      flash[:danger] = @payment.error
+      redirect_to new_charge_path
+    end
   end
 
   def success

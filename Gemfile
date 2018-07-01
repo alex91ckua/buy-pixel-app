@@ -35,8 +35,8 @@ gem 'jbuilder', '~> 2.5'
 #
 gem 'bootstrap', '~> 4.0.0'
 
-# Stripe for payments
-gem 'stripe'
+# PayPal for payments
+gem 'paypal-sdk-rest'
 
 # Simple admin panel
 gem 'activeadmin'
