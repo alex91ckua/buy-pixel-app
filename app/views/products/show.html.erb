@@ -100,7 +100,7 @@
           <% end %>
 
           <div class="item__descr  col-12  col-lg-6">
-            <%= @description_1.html_safe %>
+            <%= @description_1 ? @description_1.html_safe : '' %>
           </div>
         </div>
       </div>
@@ -145,7 +145,7 @@
             </div>
           <% end %>
           <div class="item__descr  col-12  col-lg-6  col-xl-5  offset-xl-1  order-lg-1">
-            <%= @description_2.html_safe %>
+            <%= @description_2 ? @description_2.html_safe : '' %>
             <a href="#buy-now" data-text="Buy a Pixel Now">Buy a Pixel Now</a>
           </div>
         </div>
