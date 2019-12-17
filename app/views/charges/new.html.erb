@@ -13,7 +13,7 @@
         </div>
       <% end %>
       <label class="amount">
-        <span>Total Amount: $<%= current_order.subtotal %></span>
+        <span>Total Amount: $<%= format('%.2f', current_order.subtotal) %></span>
       </label>
     </article>
 
