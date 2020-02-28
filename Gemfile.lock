@@ -225,7 +225,7 @@ GEM
       activerecord (>= 3.0)
     popper_js (1.12.9)
     public_suffix (3.0.2)
-    puma (3.11.2)
+    puma (3.12.3)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (2.0.4)
@@ -354,7 +354,7 @@ DEPENDENCIES
   magnific-popup-rails (~> 1.1.0)
   paypal-sdk-rest
   pg (~> 0.18)
-  puma (~> 3.7)
+  puma (~> 3.12)
   pundit
   rails (~> 5.1.4)
   sass-rails (~> 5.0)
