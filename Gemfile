@@ -48,7 +48,7 @@ gem 'draper'
 gem 'pundit'
 
 # Simple image uploader
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 
 # App settings
 gem 'activeadmin_settings_cached'
